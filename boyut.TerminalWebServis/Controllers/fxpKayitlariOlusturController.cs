@@ -31,7 +31,7 @@ namespace boyut.TerminalWebServis.Controllers
         {
             JArray jArray = JArray.Parse(metin.DuzMetin);
 
-            String log = "Ekleyen : " + jArray.First["Ekleyen"].ToString() + "\n Tanım : " + jArray.First["Tanim"].ToString() + "\n Tarih : " + jArray.First["SayimDosyasi"].ToString().ToLower().Replace("say", "").Substring(0, 5);
+            String log = "Kayıt Ekleme İşlemi \nEkleyen : " + jArray.First["Ekleyen"].ToString() + "\n Tanım : " + jArray.First["Tanim"].ToString() + "\n Tarih : " + jArray.First["SayimDosyasi"].ToString().ToLower().Replace("say", "").Substring(0, 5);
             InsertText insertLog = new InsertText(@"C:\net\AndroidLog.txt", log);
             insertLog = null;
             string hatadurum = "ok";
@@ -60,7 +60,7 @@ namespace boyut.TerminalWebServis.Controllers
                 catch (Exception e)
                 {
                     hatadurum = "false";
-                    InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "\n =====KAYIT HATASI===== \n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
+                    InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "KAYIT HATASI======= \n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
                 }
                 finally
                 {

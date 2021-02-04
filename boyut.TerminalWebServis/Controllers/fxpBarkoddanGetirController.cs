@@ -35,9 +35,7 @@ namespace boyut.TerminalWebServis.Controllers
             String brkd = jObject["barkodu"].ToString();
             String sbNo = jObject["subeNo"].ToString();
 
-            //jsonString = "{'Miktari':'" + ALLTRIM(STR(mktr)) + "','Reyon':'" + ryn + "','Raf':'" + ALLTRIM(rf) + "','Cfiyati':'" + ALLTRIM(STR(cfyt)) + "','Kututipi':'" + ALLTRIM(ktip) + "'}"
             sayim fxpSayim = new sayim();
-            //JObject donen = JObject.Parse(fxpSayim.getBarkoddanGetir(brkd)); 
             JObject donen;
 
             string paketMiadi = "";
@@ -138,6 +136,9 @@ namespace boyut.TerminalWebServis.Controllers
             String hatalar = "";
             //String hatalar = donen["hatalar"].ToString();
             JObject jsonStr = JObject.Parse("{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}");
+            
+            InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "Barkot Okutma:\n"+"{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}"+"\n ");
+
             //JObject jsonStr = JObject.Parse("{'Hatalar':'"+hatalar+"'}");
             return jsonStr;
         }

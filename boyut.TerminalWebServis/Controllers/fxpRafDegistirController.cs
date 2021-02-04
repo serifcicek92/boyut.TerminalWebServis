@@ -40,7 +40,7 @@ namespace boyut.TerminalWebServis.Controllers
             string jsonString = "{'durum':'"+a+"ok'}";
             JObject jObject = JObject.Parse(jsonString);
 
-            InsertText log = new InsertText(@"C:\net\AndroidLog.txt", "Raf Değiştirme İşlemi \n Kodu: " + j["Kodu"].ToString() + "\n Cep No : " + j["cno"].ToString() + "\n Raf : " + j["Draf"].ToString() + "\n Besleme Yeri : " + j["BeslemeYeri"].ToString());
+            InsertText log = new InsertText(@"C:\net\AndroidRafLog.txt", "Raf Değiştirme İşlemi \n Kodu: " + j["Kodu"].ToString() + "\n Cep No : " + j["cno"].ToString() + "\n Raf : " + j["Draf"].ToString() + "\n Besleme Yeri : " + j["BeslemeYeri"].ToString());
             return jObject;
         }
 
