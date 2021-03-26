@@ -29,56 +29,72 @@ namespace boyut.TerminalWebServis.Controllers
         // POST: api/fxpKayitlariOlustur
         public JObject Post(Metin metin)
         {
-            JArray jArray = JArray.Parse(metin.DuzMetin);
-
-            String log = "Kayıt Ekleme İşlemi \nEkleyen : " + jArray.First["Ekleyen"].ToString() + "\n Tanım : " + jArray.First["Tanim"].ToString() + "\n Tarih : " + jArray.First["SayimDosyasi"].ToString().ToLower().Replace("say", "").Substring(0, 5);
-            InsertText insertLog = new InsertText(@"C:\net\AndroidLog.txt", log);
-            insertLog = null;
-            string hatadurum = "ok";
-            sayim s = new sayim();
-
-            foreach (var item in jArray)
+            JObject jObject = null;
+            try
             {
-                try
+                JArray jArray = JArray.Parse(metin.DuzMetin);
+
+
+
+                String log = "Kayıt Ekleme İşlemi \nEkleyen : " + jArray.First["Ekleyen"].ToString() + "\n Tanım : " + jArray.First["Tanim"].ToString() + "\n Tarih : " + jArray.First["SayimDosyasi"].ToString().ToLower().Replace("say", "").Substring(0, 5);
+                InsertText insertLog = new InsertText(@"C:\net\AndroidLog.txt", log);
+                insertLog = null;
+                string hatadurum = "ok";
+                sayim s = new sayim();
+
+                foreach (var item in jArray)
                 {
-                    String olustur = s.Sayimbilgilerigir(item["Reyon"].ToString(),
-                   item["Raf"].ToString(),
-                   item["Tanim"].ToString(),
-                   item["Ekleyen"].ToString(),
-                   item["Ekleyen"].ToString(),
-                   item["EklemeZamani"].ToString(),
-                   item["Kodu"].ToString(),
-                   item["Fiyat"].ToString(),
-                   item["Kututipi"].ToString(),
-                   item["Miad"].ToString(),
-                   item["SeriNo"].ToString(),
-                   item["Miktar"].ToString(),
-                   item["KDegisti"].ToString(),
-                   item["SayimDosyasi"].ToString().ToLower());
+                    try
+                    {
+                        String olustur = s.Sayimbilgilerigir(item["Reyon"].ToString(),
+                       item["Raf"].ToString(),
+                       item["Tanim"].ToString(),
+                       item["Ekleyen"].ToString(),
+                       item["Ekleyen"].ToString(),
+                       item["EklemeZamani"].ToString(),
+                       item["Kodu"].ToString(),
+                       item["Fiyat"].ToString(),
+                       item["Kututipi"].ToString(),
+                       item["Miad"].ToString(),
+                       item["SeriNo"].ToString(),
+                       item["Miktar"].ToString(),
+                       item["KDegisti"].ToString(),
+                       item["SayimDosyasi"].ToString().ToLower());
+
+                    }
+                    catch (Exception e)
+                    {
+                        Random r = new Random(999);
+                        hatadurum = "false";
+                        InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" +r.Next() + ".txt", "KAYIT HATASI======= \n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
+                    }
+                    finally
+                    {
+                        s.DBKAPAT();
+                    }
 
                 }
-                catch (Exception e)
-                {
-                    hatadurum = "false";
-                    InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "KAYIT HATASI======= \n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
-                }
-                finally
-                {
-                    s.DBKAPAT();
-                }
+
+                s.wlogout();
+                s.DBKAPAT();
+                s = null;
+
+                string jsonString = "{'durum':'" + hatadurum + "'}";
+                jObject = JObject.Parse(jsonString);
 
             }
-            s.wlogout();
-            s.DBKAPAT();
-            s = null;
+            catch (Exception)
+            {
+                Random r = new Random(999);
 
-            string jsonString = "{'durum':'"+hatadurum+"'}";
-            JObject jObject = JObject.Parse(jsonString);
+                InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" + r.Next() + ".txt", metin.DuzMetin);
+
+            }
             return jObject;
         }
 
         // PUT: api/fxpKayitlariOlustur/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
