@@ -42,11 +42,12 @@ namespace boyut.TerminalWebServis.Controllers
             if (brkd.Substring(0, 2) != "00")
 
             {
-                string hataYaz =  fxpSayim.getIlacBilgileri(brkd, sbNo);
+                string donenText = fxpSayim.getIlacBilgileri(brkd, sbNo);
+                string hataYaz = donenText;
                 //String dooo = fxpSayim.getIlacBilgileri(brkd, sbNo);
                 try
                 {
-                    donen = JObject.Parse(fxpSayim.getIlacBilgileri(brkd, sbNo));
+                    donen = JObject.Parse(donenText);
                     hataYaz += "bura oldu";
                     hataYaz += donen["ilacadi"].ToString();
                     return getBilgiler(donen, paketMiadi);
@@ -122,10 +123,10 @@ namespace boyut.TerminalWebServis.Controllers
             String raf = donen["raf"].ToString();
             String kutuTipi = donen["kututipi"].ToString();
             String kutuTipi2 = (donen["kututipi2"] == null ? "" : donen["kututipi2"].ToString());
-            if (kutuTipi.Trim() == "" || kutuTipi == null && kutuTipi2.Trim() != "" && kutuTipi2 != null)
-            {
-                kutuTipi = kutuTipi2;
-            }
+            //if (kutuTipi.Trim() == "" || kutuTipi == null && kutuTipi2.Trim() != "" && kutuTipi2 != null)
+            //{
+            //    kutuTipi = kutuTipi2;
+            //}
 
             String cfiyati = donen["fiyati"].ToString();
             String beslemeyer = donen["beslemeyer"].ToString().Replace("\\", "\\\\");
@@ -136,9 +137,9 @@ namespace boyut.TerminalWebServis.Controllers
 
             String hatalar = "";
             //String hatalar = donen["hatalar"].ToString();
-            JObject jsonStr = JObject.Parse("{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}");
+            JObject jsonStr = JObject.Parse("{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','KutuTipi2':'" + kutuTipi2 + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}");
             
-            InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "Barkot Okutma:\n"+"{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}"+"\n ");
+            InsertText InsertLog = new InsertText(@"C:\net\AndroidLog.txt", "Barkot Okutma:\n"+"{'Miktar':'" + miktari + "','Miktar2':'" + miktari2 + "','IlacKodu':'" + ilacKodu + "'," + "'beslemeyer':'" + beslemeyer + "'," + "'IlacAdi':'" + ilacAdi + "','Reyon':'" + reyon + "','Raf':'" + raf + "','Raf2':'" + raf2 + "','PaketMiadi':'" + paketMiadi + "','KutuTipi':'" + kutuTipi + "','KutuTipi2':'" + kutuTipi2 + "','Cfiyati':'" + cfiyati + "','Cfiyati2':'" + cfiyati2 + "','Hatalar':'" + hatalar + "'}"+"\n ");
 
             //JObject jsonStr = JObject.Parse("{'Hatalar':'"+hatalar+"'}");
             return jsonStr;
