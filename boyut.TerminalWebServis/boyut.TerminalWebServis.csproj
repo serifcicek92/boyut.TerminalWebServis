@@ -201,6 +201,7 @@
     <Compile Include="Controllers\fxpKontKullController.cs" />
     <Compile Include="Controllers\fxpKontSayimDbfController.cs" />
     <Compile Include="Controllers\fxpRafDegistirController.cs" />
+    <Compile Include="Controllers\fxpRafVersionController.cs" />
     <Compile Include="Controllers\fxpSubeNoController.cs" />
     <Compile Include="Controllers\fxpVersionKontController.cs" />
     <Compile Include="Controllers\getdbfController.cs" />
@@ -273,6 +274,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ResourceAccess\Contexts\" />
+    <Folder Include="Views\fxpRafVersion\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
