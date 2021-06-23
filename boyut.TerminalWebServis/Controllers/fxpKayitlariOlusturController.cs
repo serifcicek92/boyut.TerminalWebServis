@@ -38,7 +38,12 @@ namespace boyut.TerminalWebServis.Controllers
 
                 String log = "Kayıt Ekleme İşlemi \nEkleyen : " + jArray.First["Ekleyen"].ToString() + "\n Tanım : " + jArray.First["Tanim"].ToString() + "\n Tarih : " + jArray.First["SayimDosyasi"].ToString().ToLower().Replace("say", "").Substring(0, 5);
                 InsertText insertLog = new InsertText(@"C:\net\AndroidLog.txt", log);
+
+                String log2 = "============================================= \nkayıt ekleme ful metin " + metin.DuzMetin + "================================ \n";
+                InsertText insertlog2 = new InsertText(@"C:\net\SayimKayitLoglari.txt", log2);
+
                 insertLog = null;
+                insertlog2 = null;
                 string hatadurum = "ok";
                 sayim s = new sayim();
 
@@ -66,7 +71,7 @@ namespace boyut.TerminalWebServis.Controllers
                     {
                         Random r = new Random(999);
                         hatadurum = "false";
-                        InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" +r.Next() + ".txt", "KAYIT HATASI======= \n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
+                        InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" +r.Next() + ".txt", "KAYIT HATASI========================== \n Hata Mesajı"+e.Message.ToString()+"==========================\n Kodu : " + item["Kodu"].ToString() + "\n Sayım Dosyası : " + item["SayimDosyasi"].ToString());
                     }
                     finally
                     {
@@ -87,7 +92,7 @@ namespace boyut.TerminalWebServis.Controllers
             {
                 Random r = new Random(999);
 
-                InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" + r.Next() + ".txt", metin.DuzMetin);
+                InsertText InsertLog = new InsertText(@"C:\net\AndroidLog" + r.Next() + ".txt", metin.DuzMetin+"\n son catch e düşenm hata");
 
             }
             return jObject;
