@@ -70,8 +70,8 @@ namespace boyut.TerminalWebServis.Controllers
                 ClientSecurity.UserInfo.USERID = 1;
 
                 ClientSecurity.UserInfo.AKTIFYIL = 2008;
-                ClientSecurity.UserInfo.USERNAME = "admin"; //ApplicationSettings.ReadConfig("userName").Decrypt();
-                ClientSecurity.UserInfo.PASSWORD = "admin0805".ToMD5(); //ApplicationSettings.ReadConfig("passWord").Decrypt().ToMD5();
+                ClientSecurity.UserInfo.USERNAME = "sbFEcbqPnu1aj6gEMOCsSA=="; //ApplicationSettings.ReadConfig("userName").Decrypt();
+                ClientSecurity.UserInfo.PASSWORD = "bkOyaLDIio9z/xTia0tNJQ==";//.ToMD5(); //ApplicationSettings.ReadConfig("passWord").Decrypt().ToMD5();
 
                 try
                 {
