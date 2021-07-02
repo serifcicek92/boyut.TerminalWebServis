@@ -82,7 +82,7 @@ namespace boyut.TerminalWebServis.Controllers
 
                     try
                     {
-                        donen = JObject.Parse(fxpSayim.getIlacBilgileri(brkd, sbNo));
+                        donen = JObject.Parse(fxpSayim.getIlacBilgileri(brkd2, sbNo));
                         return getBilgiler(donen, paketMiadi);
                     }
                     catch (Exception e)
