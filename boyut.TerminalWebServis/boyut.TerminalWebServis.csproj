@@ -215,11 +215,24 @@
     <Compile Include="Controllers\ReyonGirisController.cs" />
     <Compile Include="Controllers\SayimFisleriController.cs" />
     <Compile Include="Controllers\SayimKaydetController.cs" />
+    <Compile Include="Controllers\sevkiyat\EczaneCikisSevkKayitController.cs" />
+    <Compile Include="Controllers\sevkiyat\FaturadanCepSepetBilgiGetirController.cs" />
+    <Compile Include="Controllers\sevkiyat\PlakaSevkSaatiEkleController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkEtiketBasController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkGetCepNoController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkGetSubeNoController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkBoyuttanSepetBilgiGetController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkPlakaKontrolController.cs" />
+    <Compile Include="Controllers\sevkiyat\testController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\InsertText.cs" />
+    <Compile Include="Models\SvkBarkod.cs" />
+    <Compile Include="Models\SvkBWServisSepetBilgi.cs" />
+    <Compile Include="Models\SvkOkunanBilgi.cs" />
+    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceAccess\Entities\OraContext.cs" />
   </ItemGroup>
@@ -278,6 +291,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ResourceAccess\Contexts\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\fxpRafVersion\" />
   </ItemGroup>
   <ItemGroup>
@@ -333,6 +347,15 @@
   <ItemGroup>
     <COMReference Include="serifsayim">
       <Guid>{15E42479-AA80-491B-86A6-E53A5D82B791}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="serifsevkiyat">
+      <Guid>{C614C3E3-3FA8-4337-AA58-B0A6DC952C9B}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
