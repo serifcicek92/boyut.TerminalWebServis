@@ -218,6 +218,7 @@
     <Compile Include="Controllers\sevkiyat\EczaneCikisSevkKayitController.cs" />
     <Compile Include="Controllers\sevkiyat\FaturadanCepSepetBilgiGetirController.cs" />
     <Compile Include="Controllers\sevkiyat\PlakaSevkSaatiEkleController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkDonusYapController.cs" />
     <Compile Include="Controllers\sevkiyat\SvkEtiketBasController.cs" />
     <Compile Include="Controllers\sevkiyat\SvkGetCepNoController.cs" />
     <Compile Include="Controllers\sevkiyat\SvkGetSubeNoController.cs" />

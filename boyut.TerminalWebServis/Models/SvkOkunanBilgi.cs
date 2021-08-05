@@ -23,6 +23,7 @@ namespace boyut.TerminalWebServis.Models
         public string sevksekli { get; set; }
         public string ftrsaati { get; set; }
         public string sipsaati { get; set; }
+        public string ftrtarih { get; set; }
         public string sepetler { get; set; }
 
     }

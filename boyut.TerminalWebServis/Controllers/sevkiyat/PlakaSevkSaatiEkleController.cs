@@ -6,7 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace boyut.TerminalWebServis.Controllers.sevkiyat
+namespace boyut.TerminalWebServis.Controllers
 {
     public class PlakaSevkSaatiEkleController : ApiController
     {
