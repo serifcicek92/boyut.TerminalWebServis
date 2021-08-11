@@ -28,20 +28,33 @@ namespace boyut.TerminalWebServis.Controllers
         // POST: api/FaturadanCepSepetBilgiGetir
         public String Post(SvkBWServisSepetBilgi okunanBilgiGetir)
         {
-            if (okunanBilgiGetir!=null)
+            sevkiyatmalalis svk = new sevkiyatmalalis();
+            try
             {
-                sevkiyatmalalis svk = new sevkiyatmalalis();
-                string JSONDonen = svk.FaturadanCepSepetBilgiGetir(okunanBilgiGetir.FaturaTarihi, okunanBilgiGetir.Hesapkodu, okunanBilgiGetir.FaturaNo);
-                svk.cikis();
-                return JSONDonen;
+                if (okunanBilgiGetir != null)
+                {
+                    string JSONDonen = svk.FaturadanCepSepetBilgiGetir(okunanBilgiGetir.FaturaTarihi, okunanBilgiGetir.Hesapkodu, okunanBilgiGetir.FaturaNo);
+                    svk.cikis();
+                    InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Sorgu - FaturadanCepSepetBilgiGetir+ Fatura No :" + okunanBilgiGetir.FaturaNo +
+                        "Fatura Tarihi :"+okunanBilgiGetir.FaturaTarihi+ "\n" + new string(' ', 36) + JSONDonen);
+                    return JSONDonen;
+                }
             }
+            catch (Exception e)
+            {
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Hata - FaturadanCepSepetBilgiGetir++ Fatura No :" + okunanBilgiGetir.FaturaNo +
+                       "Fatura Tarihi :" + okunanBilgiGetir.FaturaTarihi + "\n" + new string(' ', 36) + e.Message);
+                svk.cikis();
+
+            }
+
             return "";
             //SvkBWServisSepetBilgi okunanBilgiGetir = Newtonsoft.Json.JsonConvert.DeserializeObject<SvkBWServisSepetBilgi>(metin.DuzMetin);
 
         }
 
         // PUT: api/FaturadanCepSepetBilgiGetir/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

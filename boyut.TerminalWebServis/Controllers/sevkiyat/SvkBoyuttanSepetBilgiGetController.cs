@@ -29,23 +29,41 @@ namespace boyut.TerminalWebServis.Controllers
         // POST: api/SvkLocalSepetBilgiGet
         public String Post(SvkBarkod donen)
         {
+
             sevkiyatmalalis malalis = new sevkiyatmalalis();
-            if (donen.taransinmi == "true")
+            try
             {
-                string jsonArrayStr = malalis.barkodOkut(donen.barkod, donen.taransinmi);
-                //List<SvkOkunanBilgi> okunanBilgiList = 
-                //    JsonConvert.DeserializeObject<List<SvkOkunanBilgi>>(malalis.barkodOkut(donen.barkod, donen.taransinmi));
-                malalis.cikis();
-                return jsonArrayStr;
+                if (donen.taransinmi == "true")
+                {
+                    string jsonArrayStr = malalis.barkodOkut(donen.barkod, donen.taransinmi);
+                    //List<SvkOkunanBilgi> okunanBilgiList = 
+                    //    JsonConvert.DeserializeObject<List<SvkOkunanBilgi>>(malalis.barkodOkut(donen.barkod, donen.taransinmi));
+                    malalis.cikis();
+                    InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Sorgu - SvkBoyuttanSepetBilgiGet +++ Barkod:" + donen.barkod +"Taransınmı :" + donen.taransinmi + "\n" + new string(' ', 36) + jsonArrayStr);
+
+                    return jsonArrayStr;
+
+                }
+                else
+                {
+                    string jobjstr = malalis.barkodOkut(donen.barkod, donen.taransinmi);
+                    //SvkOkunanBilgi okunanBilgi = 
+                    //    JsonConvert.DeserializeObject<SvkOkunanBilgi>(malalis.barkodOkut(donen.barkod, donen.taransinmi));
+                    InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Sorgu - SvkBoyuttanSepetBilgiGet +++ Barkod:" + donen.barkod + "Taransınmı :" + donen.taransinmi + "\n" + new string(' ', 36) + jobjstr);
+                    malalis.cikis();
+                    return jobjstr;
+                }
 
             }
-            else
+            catch (Exception e)
             {
-                string jobjstr = malalis.barkodOkut(donen.barkod, donen.taransinmi);
-                //SvkOkunanBilgi okunanBilgi = 
-                //    JsonConvert.DeserializeObject<SvkOkunanBilgi>(malalis.barkodOkut(donen.barkod, donen.taransinmi));
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Hata - SvkBoyuttanSepetBilgiGet ++ Barkod:" + donen.barkod + "Taransınmı :" + donen.taransinmi + "\n" + new string(' ', 36) + e.Message);
+
+                throw;
+            }
+            finally
+            {
                 malalis.cikis();
-                return jobjstr;
             }
 
             return null;

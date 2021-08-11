@@ -224,6 +224,7 @@
     <Compile Include="Controllers\sevkiyat\SvkGetSubeNoController.cs" />
     <Compile Include="Controllers\sevkiyat\SvkBoyuttanSepetBilgiGetController.cs" />
     <Compile Include="Controllers\sevkiyat\SvkPlakaKontrolController.cs" />
+    <Compile Include="Controllers\sevkiyat\SvkSubeCepVeFirmaController.cs" />
     <Compile Include="Controllers\sevkiyat\testController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

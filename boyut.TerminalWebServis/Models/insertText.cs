@@ -17,7 +17,7 @@ namespace boyut.TerminalWebServis.Models
                 {
                     File.Create(url).Close();
                 }
-                File.AppendAllLines(url, new string[] {":::"+ DateTime.Now.ToString() + ":::\n" + text });
+                File.AppendAllLines(url, new string[] {DateTime.Now.ToString() + ":::::::" + text });
             }
             catch (Exception)
             {

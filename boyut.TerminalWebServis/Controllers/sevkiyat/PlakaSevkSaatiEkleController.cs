@@ -1,4 +1,5 @@
 ﻿using boyut.SayimDataAccess;
+using boyut.TerminalWebServis.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,26 +26,30 @@ namespace boyut.TerminalWebServis.Controllers
         // POST: api/PlakaSevkSaatiEkle
         public string Post(Metin plk)
         {
+            serifsevkiyat.sevkiyatmalalis sevk = new serifsevkiyat.sevkiyatmalalis();
             try
             {
-                serifsevkiyat.sevkiyatmalalis sevk = new serifsevkiyat.sevkiyatmalalis();
+
                 string don = sevk.plakaSevkSaatiEkle(plk.DuzMetin);
                 sevk.cikis();
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Kayıt - PlakaSevkSaatiEkle +++++++++ " + plk.DuzMetin + "\n" + new string(' ', 36) + don);
+
                 return don;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Hata - EzaneCikisSevkKayit +++++++++ " + plk.DuzMetin + "\n" + new string(' ', 36) + e.Message);
+                sevk.cikis();
                 return "";
             }
-           
+
 
             return "";
         }
 
         // PUT: api/PlakaSevkSaatiEkle/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

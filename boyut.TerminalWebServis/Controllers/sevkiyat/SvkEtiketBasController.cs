@@ -1,4 +1,5 @@
 ﻿using boyut.SayimDataAccess;
+using boyut.TerminalWebServis.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -28,29 +29,44 @@ namespace boyut.TerminalWebServis.Controllers
         {
             // faturano ve etiket yazıcı no 
             //FaturadanEtiketBas
-            //etiketBaski
-            JObject jObject = JObject.Parse(jsonStr.DuzMetin);
-            String faturano = jObject["faturano"].ToString();
-            String etiketYazici = jObject["etiketyazici"].ToString();
-            String sepetNo = jObject["sepetNo"].ToString();
+            //etiketBaski 
             serifsevkiyat.sevkiyatmalalis ss = new serifsevkiyat.sevkiyatmalalis();
-            if (faturano!="" && faturano!=null)
+
+            try
             {
-                string don = ss.FaturadanEtiketBas(faturano, etiketYazici);
-                ss.cikis();
-               return don;
+                JObject jObject = JObject.Parse(jsonStr.DuzMetin);
+                String faturano = jObject["faturano"].ToString();
+                String etiketYazici = jObject["etiketyazici"].ToString();
+                String sepetNo = jObject["sepetNo"].ToString();
+                if (faturano != "" && faturano != null)
+                {
+                    string don = ss.FaturadanEtiketBas(faturano, etiketYazici);
+                    ss.cikis();
+                    
+                    InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Kayıt - SvkEtiketBas "+new string(' ',11)+"++++ " + jsonStr.DuzMetin + "\n" + new string(' ', 36) + don);
+
+                    return don;
+                }
+                if (sepetNo != "" && sepetNo != null)
+                {
+                    string don = ss.etiketBaski(sepetNo, etiketYazici);
+                    InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Kayıt - SvkEtiketBas " + new string(' ', 11) + "++++ " + jsonStr.DuzMetin + "\n" + new string(' ', 36) + don);
+                    ss.cikis();
+                    return don;
+                }
             }
-            if (sepetNo != "" && sepetNo != null)
+            catch (Exception e)
             {
-                string don =ss.etiketBaski(sepetNo, etiketYazici);
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Kayıt - SvkEtiketBas " + new string(' ', 11) + "++++ " + jsonStr.DuzMetin + "\n" + new string(' ', 36) + e.Message);
                 ss.cikis();
-                return don;
+
             }
+
             return "";
         }
 
         // PUT: api/SvkEtiketBas/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 

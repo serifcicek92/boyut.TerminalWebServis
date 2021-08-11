@@ -1,4 +1,5 @@
 ﻿using boyut.SayimDataAccess;
+using boyut.TerminalWebServis.Models;
 using serifsevkiyat;
 using System;
 using System.Collections.Generic;
@@ -27,13 +28,25 @@ namespace boyut.TerminalWebServis.Controllers
         public string Post(Metin metin)
         {
             sevkiyatmalalis svk = new sevkiyatmalalis();
-            string cepno = svk.getCepNo().ToString().Trim();
-            svk.cikis();
-            return "{'cepno':'"+cepno+"'}";
+            try
+            {
+                string cepno = svk.getCepNo().ToString().Trim();
+                svk.cikis();
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Sorgu - SvkGetCepNo         ++++++++ " + metin.DuzMetin + "\n" + new string(' ', 36) + cepno);
+
+                return "{'cepno':'" + cepno + "'}";
+            }
+            catch (Exception e)
+            {
+                InsertText insertText = new InsertText(@"C:\net\MalAlisLog", "Sorgu - SvkGetCepNo         ++++++++ " + metin.DuzMetin + "\n" + new string(' ', 36) + e.Message);
+                svk.cikis();
+                throw;
+            }
+
         }
 
         // PUT: api/SvkGetCepNo/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody] string value)
         {
         }
 
