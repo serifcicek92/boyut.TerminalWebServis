@@ -200,6 +200,7 @@
     <Compile Include="Controllers\DBFController.cs" />
     <Compile Include="Controllers\fxpBarkoddanGetirController.cs" />
     <Compile Include="Controllers\fxpGetTumIlaclarController.cs" />
+    <Compile Include="Controllers\fxpHataKaydetController.cs" />
     <Compile Include="Controllers\fxpIlacBilgileriSorgulaController.cs" />
     <Compile Include="Controllers\fxpKayitlariOlusturController.cs" />
     <Compile Include="Controllers\fxpKontKullController.cs" />
@@ -294,6 +295,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="ResourceAccess\Contexts\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\fxpHataYaz\" />
     <Folder Include="Views\fxpRafVersion\" />
   </ItemGroup>
   <ItemGroup>
