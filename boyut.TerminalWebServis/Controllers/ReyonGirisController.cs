@@ -1,5 +1,7 @@
 ﻿using boyut.SayimDataAccess;
 using boyut.TerminalWebServis.Models;
+using Boyut.BusinessLayer.SiparisBL;
+using Boyut.CommonLibrary;
 using Newtonsoft.Json.Linq;
 using serifsayim;
 using System;
@@ -28,6 +30,17 @@ namespace boyut.TerminalWebServis.Controllers
         // POST: api/ReyonGiris
         public String Post(Metin value)
         {
+            UserContext uc = new UserContext();
+            uc.AKTIFYIL = 2008;
+            uc.AKTIFDIL = "TR";
+            try
+            {
+                uc.USERID = 1;
+            }
+            catch { }
+
+            
+
             JObject jObject = JObject.Parse(value.DuzMetin);
             String sepet = jObject["sepetno"].ToString().Trim();
 
@@ -36,6 +49,9 @@ namespace boyut.TerminalWebServis.Controllers
             {
                 String donen = sym.sepetGiris(sepet, "");
                 InsertText InsertLog = new InsertText(@"C:\net\AndroidSepetKaydetLog.txt", "SEPET : " +sepet);
+                JObject boyutDonenJson = JObject.Parse(donen);
+                SIP_SEVKIYATLARDsp sevkiyatlar = new SIP_SEVKIYATLARDsp();
+                sevkiyatlar.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), boyutDonenJson["faturano"].ToString(), boyutDonenJson["subeno"].ToString(), null,boyutDonenJson["tarih"].ToString(), "D", uc);
                 return donen;
             }
             catch (Exception e)

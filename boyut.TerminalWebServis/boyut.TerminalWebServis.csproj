@@ -55,9 +55,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Boyut.BusinessLayer.SiparisBL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.BusinessLayer.SiparisBL.dll</HintPath>
+    </Reference>
     <Reference Include="Boyut.CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.CommonLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataLayer.SiparisDL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataLayer.SiparisDL.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataMapperLayer.DataMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataMapperLayer.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataMapperLayer.DataMapperInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataMapperLayer.DataMapperInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataMapperLayer.IDataMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataMapperLayer.IDataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataMapperLayer.OracleDataMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataMapperLayer.OracleDataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.DataMapperLayer.PostgreDataMapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DataMapperLayer.PostgreDataMapper.dll</HintPath>
     </Reference>
     <Reference Include="Boyut.DatasetLayer.IlacDS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -67,9 +95,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.DatasetLayer.SecurityDS.dll</HintPath>
     </Reference>
+    <Reference Include="Boyut.DatasetLayer.SiparisDS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.DatasetLayer.SiparisDS.dll</HintPath>
+    </Reference>
     <Reference Include="Boyut.InterfaceLayer.IlacIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.InterfaceLayer.IlacIL.dll</HintPath>
+    </Reference>
+    <Reference Include="Boyut.InterfaceLayer.SiparisIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Boyut.InterfaceLayer.SiparisIL.dll</HintPath>
     </Reference>
     <Reference Include="Boyut.ProxyLayer.IlacPL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

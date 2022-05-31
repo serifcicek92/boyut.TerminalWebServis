@@ -56,7 +56,7 @@ namespace boyut.TerminalWebServis.Controllers
                 catch (Exception e)
                 {
                     Random r = new Random(999);
-                    InsertText InsertLog = new InsertText(@"C:\net\AndroidLog"+r+".txt", "HATA::::::"+hataYaz+"\nDLL HATASI : " + e.Message);
+                    InsertText InsertLog = new InsertText(@"C:\net\AndroidLog"+r.Next()+".txt", "HATA::::::"+hataYaz+"\nDLL HATASI : " + e.Message);
                     return null;
                 }
                 finally
