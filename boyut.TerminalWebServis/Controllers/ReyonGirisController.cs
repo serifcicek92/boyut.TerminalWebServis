@@ -40,8 +40,8 @@ namespace boyut.TerminalWebServis.Controllers
             catch { }
 
 
-            SIP_SEVKIYATLARDsp sevkiyatlarBLt = new SIP_SEVKIYATLARDsp();
-            sevkiyatlarBLt.UpdatePaketDurum("7483", "1K 2398892", "16", null, "30/05/2022", "D", uc);
+            //SIP_SEVKIYATLARDsp sevkiyatlarBLt = new SIP_SEVKIYATLARDsp();
+            //sevkiyatlarBLt.UpdatePaketDurum("7483", "1K 2398892", "16", null, "30/05/2022", "D", uc);
 
             JObject jObject = JObject.Parse(value.DuzMetin);
             String sepet = jObject["sepetno"].ToString().Trim();
@@ -51,6 +51,7 @@ namespace boyut.TerminalWebServis.Controllers
             {
                 String donen = sym.sepetGiris(sepet, "");
                 InsertText InsertLog = new InsertText(@"C:\net\AndroidSepetKaydetLog.txt", "SEPET : " +sepet);
+                new InsertText(@"C:\net\AndroidSepetKaydetLog.txt", "DONEN : " + donen);
                 JObject boyutDonenJson = JObject.Parse(donen);
                 SIP_SEVKIYATLARDsp sevkiyatlarBL = new SIP_SEVKIYATLARDsp();
                 sevkiyatlarBL.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), boyutDonenJson["faturano"].ToString(), boyutDonenJson["subeno"].ToString(), null,boyutDonenJson["tarih"].ToString(), "D", uc);
