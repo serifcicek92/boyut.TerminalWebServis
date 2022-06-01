@@ -20,7 +20,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>boyut.TerminalWebServis</RootNamespace>
     <AssemblyName>boyut.TerminalWebServis</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -31,6 +31,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,10 +56,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Boyut.BusinessLayer.SiparisBL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Boyut.BusinessLayer.SiparisBL.dll</HintPath>
-    </Reference>
     <Reference Include="Boyut.CommonLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.CommonLibrary.dll</HintPath>
@@ -95,17 +92,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.DatasetLayer.SecurityDS.dll</HintPath>
     </Reference>
-    <Reference Include="Boyut.DatasetLayer.SiparisDS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Boyut.DatasetLayer.SiparisDS.dll</HintPath>
-    </Reference>
     <Reference Include="Boyut.InterfaceLayer.IlacIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Boyut.InterfaceLayer.IlacIL.dll</HintPath>
-    </Reference>
-    <Reference Include="Boyut.InterfaceLayer.SiparisIL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Boyut.InterfaceLayer.SiparisIL.dll</HintPath>
     </Reference>
     <Reference Include="Boyut.ProxyLayer.IlacPL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -126,13 +115,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
@@ -186,6 +175,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -364,6 +354,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\boyut.BusinessLayer\boyut.BusinessLayer.csproj">
+      <Project>{0c9bd62e-a66a-4750-8777-7af3d0d084e8}</Project>
+      <Name>boyut.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\boyut.SayimDataAccess\boyut.SayimDataAccess.csproj">
       <Project>{75c5f7e8-5ecf-46cc-9027-d1dcc1136691}</Project>
       <Name>boyut.SayimDataAccess</Name>

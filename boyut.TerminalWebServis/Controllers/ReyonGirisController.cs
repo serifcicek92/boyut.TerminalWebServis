@@ -1,6 +1,6 @@
-﻿using boyut.SayimDataAccess;
+﻿using boyut.BusinessLayer;
+using boyut.SayimDataAccess;
 using boyut.TerminalWebServis.Models;
-using Boyut.BusinessLayer.SiparisBL;
 using Boyut.CommonLibrary;
 using Newtonsoft.Json.Linq;
 using serifsayim;
@@ -50,8 +50,8 @@ namespace boyut.TerminalWebServis.Controllers
                 String donen = sym.sepetGiris(sepet, "");
                 InsertText InsertLog = new InsertText(@"C:\net\AndroidSepetKaydetLog.txt", "SEPET : " +sepet);
                 JObject boyutDonenJson = JObject.Parse(donen);
-                SIP_SEVKIYATLARDsp sevkiyatlar = new SIP_SEVKIYATLARDsp();
-                sevkiyatlar.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), boyutDonenJson["faturano"].ToString(), boyutDonenJson["subeno"].ToString(), null,boyutDonenJson["tarih"].ToString(), "D", uc);
+                SIP_SEVKIYATLARDsp sevkiyatlarBL = new SIP_SEVKIYATLARDsp();
+                sevkiyatlarBL.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), boyutDonenJson["faturano"].ToString(), boyutDonenJson["subeno"].ToString(), null,boyutDonenJson["tarih"].ToString(), "D", uc);
                 return donen;
             }
             catch (Exception e)
