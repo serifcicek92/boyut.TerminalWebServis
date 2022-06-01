@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Web.Http;
 
 namespace boyut.TerminalWebServis.Controllers
@@ -54,7 +55,9 @@ namespace boyut.TerminalWebServis.Controllers
                 new InsertText(@"C:\net\AndroidSepetKaydetLog.txt", "DONEN : " + donen);
                 JObject boyutDonenJson = JObject.Parse(donen);
                 SIP_SEVKIYATLARDsp sevkiyatlarBL = new SIP_SEVKIYATLARDsp();
-                sevkiyatlarBL.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), boyutDonenJson["faturano"].ToString(), boyutDonenJson["subeno"].ToString(), null,boyutDonenJson["tarih"].ToString(), "D", uc);
+                string tarih = boyutDonenJson["tarih"].ToString();
+                tarih = tarih.Substring(3, 2) + "/" + tarih.Substring(0, 2) + "/20" + tarih.Substring(6, 2);
+                sevkiyatlarBL.UpdatePaketDurum(boyutDonenJson["sepetno"].ToString().Trim(), Regex.Replace(boyutDonenJson["faturano"].ToString().Trim(), @"([\s]{2})", " "), boyutDonenJson["subeno"].ToString(), null,tarih, "D", uc);
                 return donen;
             }
             catch (Exception e)
