@@ -39,7 +39,9 @@ namespace boyut.TerminalWebServis.Controllers
             }
             catch { }
 
-            
+
+            SIP_SEVKIYATLARDsp sevkiyatlarBLt = new SIP_SEVKIYATLARDsp();
+            sevkiyatlarBLt.UpdatePaketDurum("7483", "1K 2398892", "16", null, "30/05/2022", "D", uc);
 
             JObject jObject = JObject.Parse(value.DuzMetin);
             String sepet = jObject["sepetno"].ToString().Trim();

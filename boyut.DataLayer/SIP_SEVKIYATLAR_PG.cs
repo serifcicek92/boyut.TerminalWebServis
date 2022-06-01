@@ -32,7 +32,7 @@ namespace boyut.DataLayer
                                 cmd.Parameters.AddWithValue("lpaketkodu", NpgsqlDbType.Text, paketKodu);
                                 cmd.Parameters.AddWithValue("lfaturano", NpgsqlDbType.Text, faturaNo);
                                 cmd.Parameters.AddWithValue("lsubekodu", NpgsqlDbType.Text, subekodu);
-                                cmd.Parameters.AddWithValue("ltakipno", NpgsqlDbType.Text, takipno);
+                                cmd.Parameters.AddWithValue("ltakipno", NpgsqlDbType.Text, takipno.DataForSQL());
                                 cmd.Parameters.AddWithValue("lfaturatarihi", NpgsqlDbType.Timestamp, faturatarihi.ToDateTime());
                                 cmd.Parameters.AddWithValue("ldurum", NpgsqlDbType.Text, durum);
                                 cmd.ExecuteNonQuery();
