@@ -35,12 +35,12 @@ namespace boyut.TerminalWebServis.Controllers
            
 
             sayim guncelle = new sayim();
-            String a =   guncelle.rafDegistir(j["Kodu"].ToString(), j["cno"].ToString(), j["Fiyat"].ToString(), j["Draf"].ToString(),j["BeslemeYeri"].ToString(),j["Miktar"].ToString());
+            String a =   guncelle.rafDegistir(j["Kodu"].ToString(), j["cno"].ToString(), j["Fiyat"].ToString(), j["Draf"].ToString(),j["BeslemeYeri"].ToString(),j["Miktar"].ToString(), j["Reyon"].ToString());
 
             string jsonString = "{'durum':'"+a+"ok'}";
             JObject jObject = JObject.Parse(jsonString);
 
-            InsertText log = new InsertText(@"C:\net\AndroidRafLog.txt", "Raf Değiştirme İşlemi \n Kodu: " + j["Kodu"].ToString() + "\n Cep No : " + j["cno"].ToString() + "\n Raf : " + j["Draf"].ToString() + "\n Besleme Yeri : " + j["BeslemeYeri"].ToString());
+            InsertText log = new InsertText(@"C:\net\AndroidRafLog.txt", "Raf Değiştirme İşlemi \n Kodu: " + j["Kodu"].ToString() + "\n Cep No : " + j["cno"].ToString() + "\n Raf : " + j["Draf"].ToString() + "\n Besleme Yeri : " + j["BeslemeYeri"].ToString()+ "\n Reyon : "+j["Reyon"].ToString());
             return jObject;
         }
 

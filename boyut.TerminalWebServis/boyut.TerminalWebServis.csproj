@@ -111,12 +111,18 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode">
+      <HintPath>C:\NRVDLL\postgre2\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Npgsql, Version=4.1.7.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\Npgsql.dll</HintPath>
+      <HintPath>C:\NRVDLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>C:\NRVDLL\postgre2\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.19.5.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
@@ -125,33 +131,48 @@
       <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.19.3.0\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\NRVDLL\postgre2\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\NRVDLL\postgre2\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>C:\NRVDLL\postgre2\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Memory.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Numerics.Vectors.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Text.Encodings.Web.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Json, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Text.Json.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels">
+      <HintPath>C:\NRVDLL\postgre2\System.Threading.Channels.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\NRVDLL\postgre\System.Threading.Tasks.Extensions.dll</HintPath>
+      <HintPath>C:\NRVDLL\postgre2\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="System.ValueTuple" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -166,9 +187,6 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
@@ -392,6 +410,10 @@
     <ProjectReference Include="..\boyut.BusinessLayer\boyut.BusinessLayer.csproj">
       <Project>{0c9bd62e-a66a-4750-8777-7af3d0d084e8}</Project>
       <Name>boyut.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\boyut.DataLayer\boyut.DataLayer.csproj">
+      <Project>{2bd0c38f-4919-49d3-ba0e-7a7eb38b548d}</Project>
+      <Name>boyut.DataLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\boyut.SayimDataAccess\boyut.SayimDataAccess.csproj">
       <Project>{75c5f7e8-5ecf-46cc-9027-d1dcc1136691}</Project>
